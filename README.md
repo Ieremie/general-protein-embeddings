@@ -40,7 +40,6 @@ If you want to embedd a set of protein sequences using any of the models, you ca
 #### This code contains various bits of code taken from other sources. If you find the repo useful, please cite the following work too:
 
 - Surface generation code: [MASIF](https://github.com/LPDI-EPFL/masif)
-- LDDT calculation: [AlphaFold](https://github.com/deepmind/alphafold)
 - Model archiecture and uniprot tokenization: [Prose](https://github.com/tbepler/prose)
 
 ## Authors
