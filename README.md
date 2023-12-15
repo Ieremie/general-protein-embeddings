@@ -1,30 +1,22 @@
-# PLMs meet reduced amino acid alphabets
+# Structure, Surface and Interface Informed Protein Language Model
 
-This repository contains the implementation of a PLM pretrained on Uniref90 and further pretrained on protein structres, surfaces and interfaces. We probide notebooks to recreate the figures found in the paper. 
+This repository contains the implementation of various protein language models trained on reduced amino acid alphabets, along with the notebooks to recreate the figures found in the paper.
 
-**For more details, see:** [Link after publishing](https://doi.org/10.1093/bioinformatics/). 
-
-![Alt Text](https://github.com/Ieremie/reduced-alph-PLM/blob/main/proemb/embeddings.gif)
+**For more details, see:** [NeurIPS-MLSB2023](https://www.mlsb.io/papers_2023/Structure_Surface_and_Interface_Informed_Protein_Language_Model.pdf). 
 
 ## About
-**Motivation**: Protein Language Models (PLMs), which borrowed ideas for modelling and inference from Natural Language Processing, have demonstrated the ability to extract meaningful representations in an unsupervised way. This led to significant performance improvement in several downstream tasks. Clustering amino acids based on their physical-chemical properties to achieve reduced alphabets has been of interest in past research, but their application to PLMs or folding models is unexplored.
-
-**Results**: Here, we investigate the efficacy of PLMs trained on reduced amino acid alphabets in capturing evolutionary information, and we explore how the loss of protein sequence information impacts learned representations and downstream task performance. Our empirical work shows that PLMs trained on the full alphabet and a large number of sequences capture fine details that are lost in alphabet reduction methods. We further show the ability of a structure prediction model(ESMFold) to fold CASP14 protein sequences translated using a reduced alphabet. For 10 proteins out of the 50 targets, reduced alphabets improve structural predictions withLDDT-Cα differences of up to 19%.
-
-
+Language models applied to protein sequence data have gained a lot of interest in recent years, mainly due to their ability to capture complex patterns at the protein sequence level. However, their understanding of why certain evolution-related conservation patterns appear is limited. This work explores the potential of protein language models to further incorporate intrinsic protein properties stemming from protein structures, surfaces, and interfaces. The results indicate that this multi-task pretraining allows the PLM to learn more meaningful representations by leveraging information obtained from different protein views. We evaluate and show improvements in performance on various downstream tasks, such as enzyme classification, remote homology detection, and protein engineering datasets. 
 
 ## Datasets
 The model is trained and evaluated using publicly available datasets:
 - PLM pretraining dataset: [Uniref90](https://www.uniprot.org/help/downloads)
-- Structure prediction datasest: [CASP14](https://predictioncenter.org/download_area/CASP14/) 
 - Enzyme Commission (EC) dataset: [IEConv_proteins](https://github.com/phermosilla/IEConv_proteins)
 - Fold recognition dataset: [TAPE](https://github.com/songlab-cal/tape)
 - FLIP benchmark datasests: [FLIP](https://github.com/J-SNACKKB/FLIP)
 
 All of these datasets can be downloaded using the release feature on Github, apart from Uniref90 which is very large. This can be downloaded and then modified using our dataset script.
 
-
-## Pretraining PLMs on reduced alphabets
+## Pretraining PLM
 To pretrain the protein language model you can run [`train_prose_multitask.py`](./proemb/train_prose_multitask.py).
 The implementation uses multiple GPUs and can be run on a single machine or on a cluster. The scripts for running the
 file on a cluster can be found at [`iridis-scripts`](./proemb/iridis-scripts/multitask). The progress of the training
@@ -39,13 +31,8 @@ the following python files:
 
 If you want to run these experiments on a cluster, take a look in the folder: [`iridis-scripts`](./proemb/iridis-scripts)
 
-
 ## Reproducing plots from the paper
-To reproduce the plots for the amino acid embedding projection using PCA, use the notebook [`aa_embeddings.ipynb`](./proemb/media/aa_embeddings.ipynb).
-For experiments involving protein structure prediction using reduced amino acid alphabets, use the notebook [`esm-structure-prediction.ipynb`](./proemb/media/esm-structure-prediction.ipynb).
-This notebook contains code for generating the structures with ESMFold and everything else needed to recreate the results. 
-
-For more information on the steps taken to create the WASS14 alphabet, take a look at: [`surface_plots.ipynb`](./proemb/media/surface_plots.ipynb)
+To reproduce the plots for the protein embedding projection using TSNE, use the notebook [`scop-tsne.ipynb`](./proemb/media/scop-tsne.ipynb).
 
 ## Embedding protein sequences
 If you want to embedd a set of protein sequences using any of the models, you can use the [`embedd.py`](./proemb/embedd.py) script. You only need to provide a fasta file.
@@ -53,6 +40,7 @@ If you want to embedd a set of protein sequences using any of the models, you ca
 #### This code contains various bits of code taken from other sources. If you find the repo useful, please cite the following work too:
 
 - Surface generation code: [MASIF](https://github.com/LPDI-EPFL/masif)
+- LDDT calculation: [AlphaFold](https://github.com/deepmind/alphafold)
 - Model archiecture and uniprot tokenization: [Prose](https://github.com/tbepler/prose)
 
 ## Authors
