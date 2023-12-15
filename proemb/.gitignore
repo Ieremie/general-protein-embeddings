@@ -1,0 +1,10 @@
+#pycharm
+../.idea/
+
+data/*
+
+iridis-scripts/saved_models/*
+
+iridis-scripts/runs/
+proemb/utils/__pycache__/
+#
