@@ -15,6 +15,8 @@ The model is trained and evaluated using publicly available datasets:
 - FLIP benchmark datasests: [FLIP](https://github.com/J-SNACKKB/FLIP)
 - SCOPe datasests: [SCOPe](https://scop.berkeley.edu/astral/ver=2.06)
 
+We provide all datasets for download as a single folder (apart from Uniref90): [all-data](https://zenodo.org/records/10451563). 
+
 All of these datasets can be downloaded using the release feature on Github, apart from Uniref90 which is very large. This can be downloaded and then modified using our dataset script.
 
 ## Pretraining PLM
