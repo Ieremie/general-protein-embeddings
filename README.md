@@ -13,6 +13,7 @@ The model is trained and evaluated using publicly available datasets:
 - Enzyme Commission (EC) dataset: [IEConv_proteins](https://github.com/phermosilla/IEConv_proteins)
 - Fold recognition dataset: [TAPE](https://github.com/songlab-cal/tape)
 - FLIP benchmark datasests: [FLIP](https://github.com/J-SNACKKB/FLIP)
+- SCOPe datasests: [SCOPe](https://scop.berkeley.edu/astral/ver=2.06)
 
 All of these datasets can be downloaded using the release feature on Github, apart from Uniref90 which is very large. This can be downloaded and then modified using our dataset script.
 
