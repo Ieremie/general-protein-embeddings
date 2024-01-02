@@ -48,7 +48,10 @@ Ioan Ieremie, Rob M. Ewing, Mahesan Niranjan
 
 ## Citation
 ```
-to be added
+@article{ieremiestructure,
+  title={Structure, Surface and Interface Informed Protein Language Model},
+  author={Ieremie, Ioan and Mahesan, Niranjan and Ewing, Rob M}
+}
 ```
 
 ## Contact
