@@ -17,8 +17,6 @@ The model is trained and evaluated using publicly available datasets:
 
 We provide all datasets for download as a single folder (apart from Uniref90): [all-data](https://zenodo.org/records/10451563). 
 
-All of these datasets can be downloaded using the release feature on Github, apart from Uniref90 which is very large. This can be downloaded and then modified using our dataset script.
-
 ## Pretraining PLM
 To pretrain the protein language model you can run [`train_prose_multitask.py`](./proemb/train_prose_multitask.py).
 The implementation uses multiple GPUs and can be run on a single machine or on a cluster. The scripts for running the
